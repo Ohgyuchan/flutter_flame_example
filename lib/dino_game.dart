@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flame/game.dart';
 import 'components/component.dart';
+import 'enums/direction.dart';
 
 class DinoGame extends FlameGame {
   DinoPlayer dinoPlayer = DinoPlayer();
@@ -14,5 +15,9 @@ class DinoGame extends FlameGame {
     dinoPlayer.position = dinoWorld.size / 1.5;
     camera.followComponent(dinoPlayer,
         worldBounds: Rect.fromLTRB(0, 0, dinoWorld.size.x, dinoWorld.size.y));
+  }
+
+  onArrowKeyChanged(Direction direction) {
+    dinoPlayer.direction = direction;
   }
 }
